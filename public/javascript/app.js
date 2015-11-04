@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
-	angular.module('app', ['ui.router',"ui.bootstrap",'ngMaterial',"ngAnimate",'scDateTime','videosharing-embed','ngVidBg','angularVideoBg'])
+	angular.module('app', ['ui.router',"ui.bootstrap",'ngMaterial',"ngAnimate",'scDateTime','videosharing-embed','angularVideoBg'])
 	.config(config);
 	(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
