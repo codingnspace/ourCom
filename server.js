@@ -7,10 +7,11 @@ var passport = require('passport');
 var mongoose = require('mongoose');
 require('./models/User');
 require('./models/Post');
-require('./config/passport');
+require('./config/passport')
+var configDB = require('./config/database.js');
+mongoose.connect(configDB.url);;
 // require('angular-youtube-embed');
 
-mongoose.connect('mongodb://localhost/neighborapp');
 app.set('views', path.join(__dirname, 'views'));
 //set the view engine that will render HTML from the server to the client
 app.engine('.html', require('ejs').renderFile);
