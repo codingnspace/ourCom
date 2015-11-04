@@ -1,0 +1,206 @@
+<div ng-controller="NeighborhoodController as vm">
+  <div layout>
+    <div flex-offset="80">
+      <div layout>
+<md-button ui-sref="Profile({id: nav.status._id})" >My Profile</md-button>
+<md-button ng-click="nav.logout()" >Logout</md-button>
+</div>
+</div>
+</div>
+<md-content >
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="Text Post">
+        <md-content class="md-padding">
+          <h2 class="md-display-2">Create a Text Post</h2>
+              <md-input-container>
+                <label style="text-align:left">Title</label>
+                <input type="text" ng-model="vm.newPost.title"  required>
+              </md-input-container>
+
+               <md-input-container>
+            <label style="text-align:left">Details</label>
+             <textarea ng-model="vm.newPost.body"></textarea>
+              </md-input-container>
+              <!-- <md-input-container>
+              <label>Tags</label>
+                 <md-chips
+                     ng-model="vm.newPost.tags"
+                     readonly="vm.newPost.readonly"
+                     placeholder="Enter a tag"
+                     delete-button-label="Remove Tag"
+                     delete-hint="Press delete to remove tag"
+                     ></md-chips>
+              </md-input-container> -->
+              <md-button ng-click="vm.createPost();">Submit</md-button>
+              <md-button>Cancel</md-button>
+        </md-content>
+      </md-tab>
+      <md-tab label="Video Post">
+        <md-content class="md-padding">
+          <h2 class="md-display-2">Create a Video Post</h2>
+          <md-input-container>
+            <label style="text-align:left">Title</label>
+            <input type="text" ng-model="vm.newPost.title"  required>
+          </md-input-container>
+          <md-input-container>
+            <label style="text-align:left">Video URL</label>
+            <input type="text" ng-model="vm.newPost.vidUrl"  required>
+          </md-input-container>
+          <!-- <md-input-container>
+          <label>Tags</label>
+             <md-chips
+                 ng-model="vm.newPost.tags"
+                 readonly="vm.newPost.readonly"
+                 placeholder="Enter a tag"
+                 delete-button-label="Remove Tag"
+                 delete-hint="Press delete to remove tag"
+                 ></md-chips>
+          </md-input-container> -->
+          <md-button ng-click="vm.createPost();">Submit</md-button>
+          <md-button>Cancel</md-button>
+        </md-content>
+      </md-tab>
+      <!-- <md-tab label="Photo">
+        <md-content class="md-padding">
+          <h1 class="md-display-2">Post Pic</h1>
+          </md-input-container>
+          <label style="text-align:left">Post Image</label>
+          <md-button ng-click="vm.postpic()">Choose an Image</md-button>
+          <md-input-container>
+        </md-content>
+      </md-tab> -->
+    <md-tab label="Event">
+      <md-content class="md-padding">
+        <h1 class="md-display-2">Share an Event</h1>
+        <md-input-container>
+          <label style="text-align:left">Title</label>
+          <input type="text" ng-model="vm.newPost.title"  required>
+        </md-input-container>
+        <md-input-container>
+          <label style="text-align:left">Location</label>
+          <input type="text" ng-model="vm.newPost.location" required>
+        </md-input-container>
+        <md-input-container>
+          <label style="text-align:left">Hosted by:</label>
+          <input type="text" ng-model="vm.newPost.host"  required>
+        </md-input-container>
+        <md-input-container>
+        <label style="text-align:left">Details</label>
+        <textarea ng-model="vm.newPost.body"></textarea>
+        </md-input-container>
+        <div layout>
+          <!-- <div flex="50"> -->
+          <div layout="column">
+          <label>Start Time</label>
+          <time-date-picker ng-model="vm.newPost.startTime"></time-date-picker>
+        </div>
+        <!-- </div> -->
+        <!-- <div flex="50"> -->
+        <div layout="column">
+
+          <label>End Time</label>
+          <time-date-picker ng-model="vm.newPost.endTime"></time-date-picker>
+        </div>
+          
+</div>
+        <!-- </div>
+        </div> -->
+        <!-- <md-input-container>
+        <label>Tags</label>
+           <md-chips
+               ng-model="vm.newPost.tags"
+               readonly="vm.newPost.readonly"
+               placeholder="Enter a tag"
+               delete-button-label="Remove Tag"
+               delete-hint="Press delete to remove tag"
+               ></md-chips>
+        </md-input-container> -->
+        <md-button ng-click="vm.createPost();">Submit</md-button>
+        <md-button>Cancel</md-button>
+      </md-content>
+    </md-tab>
+  <md-tab label="Need">
+    <md-content class="md-padding">
+      <h2 class="md-display-2">Share a Need</h2>
+      <md-input-container>
+        <label style="text-align:left">Title</label>
+        <input type="text" ng-model="vm.newPost.title"  required>
+      </md-input-container>
+      <!-- <md-input-container>
+        <label style="text-align:left">Price</label>
+        <input type="text" ng-model="vm.newPost.price" >
+      </md-input-container> -->
+      <md-input-container>
+      <label style="text-align:left">Details</label>
+      <textarea ng-model="vm.newPost.body"></textarea>
+      </md-input-container>
+      <!-- <md-input-container>
+      <label>Tags</label>
+         <md-chips
+             ng-model="vm.newPost.tags"
+             readonly="vm.newPost.readonly"
+             placeholder="Enter a tag"
+             delete-button-label="Remove Tag"
+             delete-hint="Press delete to remove tag"
+             ></md-chips>
+      </md-input-container> -->
+      <md-button ng-click="vm.createPost();">Submit</md-button>
+      <md-button>Cancel</md-button>
+    </md-content>
+  </md-tab>
+  <md-tab label="Offer">
+    <md-content class="md-padding">
+      <h2 class="md-display-2">Give Back</h2>
+      <md-input-container>
+        <label style="text-align:left">Title</label>
+        <input type="text" ng-model="vm.newPost.title"  required>
+      </md-input-container>
+      <md-input-container>
+        <label style="text-align:left">Price</label>
+        <input type="text" ng-model="vm.newPost.price" >
+      </md-input-container>
+      <md-input-container>
+      <label style="text-align:left">Details</label>
+      <textarea ng-model="vm.newPost.body"></textarea>
+      </md-input-container>
+      <!-- <md-input-container>
+      <label>Tags</label>
+         <md-chips
+             ng-model="vm.newPost.tags"
+             readonly="vm.newPost.readonly"
+             placeholder="Enter a tag"
+             delete-button-label="Remove Tag"
+             delete-hint="Press delete to remove tag"
+             ></md-chips>
+      </md-input-container> -->
+      <md-button ng-click="vm.createPost();">Submit</md-button>
+      <md-button>Cancel</md-button>
+    </md-content>
+  </md-tab>
+</md-tabs>
+  </md-content>
+
+<h3 flex-offset="5" >Community Posts</h3>
+<div flex-offset="5" ng-repeat="p in vm.posts">
+<div layout>
+<div flex="60">
+  <a ui-sref="Post({id: p._id})"><h2>{{p.title}}</h2></a>
+</div>
+<!-- <div ng-repeat="t in vm.posts.tags">
+Posted in  <a><h4>{{t}</h4></a>
+</div> -->
+<!-- <md-button>View/Add Comments</md-button> -->
+<!-- <ul>
+  <li>{r}<li>
+</ul> -->
+</div>
+
+
+
+
+
+
+
+
+
+</div>

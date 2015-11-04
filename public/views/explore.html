@@ -1,0 +1,33 @@
+<div ng-controller="ExplorController as vm">
+
+  <div ng-repeat="p in vm.post">
+    <div layout>
+    <div layout="column">
+      <div flex="30">
+      <img src="{{vm.post._avatar}}"/>
+      <md-button ng-click="nav.follow(p._createBy)">Follow</md-button>
+      </div>
+      <div flex>
+        <h2>{{p.title}}</h2>
+        <h5>{{p.host}}</h5>
+        <h6>{{p.location}}</h6>
+        <h6>{{p.startTime}}</h6>
+        <h6>{{p.endTime}}</h6>
+
+        <embed-video data-ng-href="{{p.vidUrl}}" controls=0><a href="{{p.vidUrl}}">Watch</a></embed-video>
+        <p>{{p.body}} </p>
+    </div>
+  </div>
+  </div>
+  <div layout >
+  Posted in: {{p.tags}}<br>
+  Posted by: {{p._createBy}}
+</div>
+<div class="fb-comments" data-href="http://localhost:3000/#/explore" data-width="500" data-numposts="5"></div>
+
+  <!-- <ul>
+    <li>{r}<li>
+  </ul> -->
+  </div>
+</div>
+</div>

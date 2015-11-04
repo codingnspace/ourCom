@@ -1,0 +1,74 @@
+<div ng-controller="ProfileController as vm" id="profile">
+  <div layout class="background" style="background-image:url({{vm.users.backgroundPic}})">
+    <div flex-offset="40">
+      <img src="{{vm.users.profilePic}}" id="profilePic"/>
+
+    </div>
+  </div>
+  <div layout>
+  <div layout="column" flex="35">
+    <div flex-offset="10" flex="80">
+    <button id="profbtn" type="button" class="btn btn-primary" ng-click="vm.isCollapsed = !vm.isCollapsed">Profile Settings</button>
+	<hr>
+	<div uib-collapse="vm.isCollapsed">
+    <div  layout="column">
+      <div layout>
+      <md-button ng-click="vm.pic()">Change Profile Pic</md-button>
+    </div>
+      <div layout>
+      <md-button ng-click="vm.bkpic()">Change Background Pic</md-button>
+        </div>
+      <div layout>
+      <md-button ui-sref="EditProfile({_id:id})">Edit Profile Info</md-button>
+        </div>
+    </div>
+  </div>
+	</div>
+
+    <div id="int">
+      <h4>My Interest and Causes</h4>
+      <ul>
+        <li ng-repeat="p in vm.users.tags">{{p}}</li>
+      </ul>
+      <div>
+        <h4>Contact Me</h4>
+        <a href="{{vm.users.facebook}}">Facebook</a>
+      </div>
+    </div>
+  </div>
+  <div layout="column" flex="35">
+
+    <md-content id="reviewWrapper">
+      <h4>Drop a Line...</h4>
+      <md-input-container>
+        <label>Add Comment</label>
+        <textarea ng-model="vm.newComment.Comments.body" ></textarea>
+      </md-input-container><br>
+      <md-button ng-click="vm.addComment(vm.newComment)">Add </md-button>
+
+      <div ng-repeat="r in vm.users.comments">
+        <div layout>
+          <div layout="row">
+            <div layout="column">
+            Posted by: <b>{{r._commenter}}</b><br>
+            {{r.comment}}
+          </div>
+          </div>
+            <div layout="row">
+          <md-button ng-click="Post({id: vm.readmore._id})">Edit</md-button>
+          <md-button ng-click="vm.deleteComment(r)">Delete</md-button>
+</div>
+      </div>
+    </md-content>
+  </div>
+</div>
+<div layout="column" flex-offset="5" flex>
+<h3>{{vm.users.name}}'s Post</h3>
+  <div ng-repeat="p in vm.users.allPost">
+    <a ui-sref="Post({id: p._id})"><h2>{{p.title}}</h2></a>
+    <md-button ng-show="vm.isUser">Edit</md-button>
+    <md-button ng-click="vm.deletePost(p)">Delete</md-button>
+  </div>
+</div>
+</div>
+</div>

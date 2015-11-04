@@ -1,0 +1,129 @@
+<div ng-controller="CreateProfileController as vm">
+
+<form ng-submit="vm.updateUser();">
+  <md-content style="margin-left:10px">
+    <h3>Basic Info</h3>
+    <md-input-container>
+      <label style="text-align:left">Full Name (required)</label>
+      <input type="text" ng-model="vm.user.name"  required>
+    </md-input-container>
+    <md-input-container>
+    <label style="text-align:left">Birthday</label>
+    <input type="date" ng-model="vm.user.date">
+    </md-input-container>
+    <hr>
+  <h3>Social Links</h3>
+    <md-input-container>
+    <label style="text-align:left">Facebook</label>
+    <input type="text" ng-model="vm.user.facebook">
+    </md-input-container>
+    <md-input-container>
+    <label style="text-align:left">Twitter</label>
+    <input type="text" ng-model="vm.user.twitter">
+    </md-input-container>
+    <md-input-container>
+    <label style="text-align:left">Tumblr</label>
+    <input type="text" ng-model="vm.user.tumblr">
+    </md-input-container>
+      <!-- <time-date-picker ng-model="dateValue"></time-date-picker> -->
+     <!-- <img-upload token-url="/create"></img-upload> -->
+     <!-- <button ng-file-select ng-model="files" ng-multiple="true">Upload</button> -->
+    <!-- <md-button ng-click="vm.next();">Next</md-button> -->
+  </md-content>
+
+  <!-- <md-content>
+    PROFILE PIC
+    <md-button ng-click="vm.pic()">Next</md-button>
+  </md-content> -->
+
+
+  <md-content flex-offset="5">
+    <h3>Interest and Causes</h3>
+    <fieldset class="standard" flex>
+        <legend>Arts and Culture</legend>
+        <div layout="row" layout-wrap flex>
+          <div ng-repeat="item in vm.art" class="standard" flex="50">
+            <label>
+              <input type="checkbox" ng-checked="vm.exists(item, vm.user.tags)"
+                     ng-click="vm.toggle(item, vm.user.tags)"/>
+              {{ item }}
+            </label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="standard" flex>
+          <legend>Causes</legend>
+          <div layout="row" layout-wrap flex>
+            <div ng-repeat="item in vm.causes" class="standard" flex="50">
+              <label>
+                <input type="checkbox" ng-checked="vm.exists(item, vm.user.tags)"
+                       ng-click="vm.toggle(item, vm.user.tags)"/>
+                {{ item }}
+              </label>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="standard" flex>
+            <legend>Education</legend>
+            <div layout="row" layout-wrap flex>
+              <div ng-repeat="item in vm.education" class="standard" flex="50">
+                <label>
+                  <input type="checkbox" ng-checked="vm.exists(item, vm.user.tags)"
+                         ng-click="vm.toggle(item, vm.user.tags)"/>
+                  {{ item }}
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+
+          <fieldset class="standard" flex>
+              <legend>Outdoors and Sports</legend>
+              <div layout="row" layout-wrap flex>
+                <div ng-repeat="item in vm.outdoors" class="standard" flex="50">
+                  <label>
+                    <input type="checkbox" ng-checked="vm.exists(item, vm.user.tags)"
+                           ng-click="vm.toggle(item, vm.user.tags)"/>
+                    {{ item }}
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+
+
+            <fieldset class="standard" flex>
+                <legend>Politics and Current Events</legend>
+                <div layout="row" layout-wrap flex>
+                  <div ng-repeat="item in vm.politics" class="standard" flex="50">
+                    <label>
+                      <input type="checkbox" ng-checked="vm.exists(item, vm.user.tags)"
+                             ng-click="vm.toggle(item, vm.user.tags)"/>
+                      {{ item }}
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+
+
+              <fieldset class="standard" flex>
+                  <legend>Religion and Spirituality </legend>
+                  <div layout="row" layout-wrap flex>
+                    <div ng-repeat="item in vm.religion" class="standard" flex="50">
+                      <label>
+                        <input type="checkbox" ng-checked="vm.exists(item, vm.user.tags)"
+                               ng-click="vm.toggle(item, vm.user.tags)"/>
+                        {{ item }}
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <!-- <h2 class="md-title">Selected Items</h2> -->
+                  <!-- <code style="display: block; padding: 8px;">{{vm.user.tags | json}}</code> -->
+                  <md-button type="submit">Submit</md-button>
+  </md-content>
+
+</form>
+</div>

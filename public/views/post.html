@@ -1,0 +1,35 @@
+<div ng-controller="PostController as vm">
+
+  <div flex-offset="70">
+    <div layout>
+<md-button ui-sref="Profile({id: nav.status._id})" >My Profile</md-button>
+<md-button ui-sref="EPost({id: vm.post._id})" >Edit</md-button>
+
+<md-button ng-click="nav.logout()" >Logout</md-button>
+</div>
+</div>
+    <!-- <div layout>
+<div flex-offset="20"> -->
+      <!-- <img src="{{vm.post.photo1}}"/> -->
+      <!-- </div> -->
+      <div flex-offset="5" flex>
+        <h2>{{vm.post.title}}</h2>
+        <h5>{{vm.post.host}}</h5>
+        <h6>{{vm.post.location}}</h6>
+        <h6>{{vm.post.startTime}}</h6>
+        <h6>{{vm.post._createBy}}</h6>
+        <h6>{{vm.post.endTime}}</h6>
+
+<embed-video data-ng-href="{{vm.post.vidUrl}}" width="500px" height="400px"controls=0><a href="{{vm.post.vidUrl}}">Watch</a></embed-video>
+        <p>{{vm.post.body}} </p>
+    </div>
+  </div>
+  </div>
+
+<div class="fb-comments" ng-model="vm.post._id" data-href="http://localhost:3000/#/post/+{{vm.post._id}}+" data-width="500" data-numposts="5"></div>
+</div>
+  <!-- <ul>
+    <li>{r}<li>
+  </ul> -->
+  </div>
+</div>

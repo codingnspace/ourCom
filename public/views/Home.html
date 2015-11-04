@@ -1,0 +1,52 @@
+<div ng-controller="HomeController as vm">
+	<h2 id="wel">Welcome to the Neighborhood!</h2>
+	<vid-bg id="vid" resources="vm.resources" >Time</vid-bg>
+
+	<md-content id="reg" ng-hide="account" >
+
+	  <form ng-submit="nav.registerUser()">
+	  <md-input-container>
+	    <label>Username</label>
+	    <input ng-model="nav.user.username" required>
+	  </md-input-container><br>
+	  <md-input-container>
+	    <label>Email</label>
+	    <input ng-model="nav.user.email" type="email" required>
+	  </md-input-container><br>
+	  <md-input-container>
+	    <label>Password</label>
+	    <input ng-model="nav.user.password" type="password" required>
+	  </md-input-container><br>
+	  <md-input-container>
+	    <label>Confirm Password</label>
+	    <input ng-model="nav.user.confirmPassword" required type="password" required>
+	  </md-input-container><br>
+	<div ng-show="nav.user.password && nav.user.confirmPassword && !(nav.user.password === nav.user.confirmPassword)"
+	 style="color: red">Your passwords must match.</div>
+	 <div layout="row" >
+		 <div flex="10"></div>
+	 <md-button  class="md-raised md-primary" id="prim" type="submit" ng-disabled="!nav.user.email || !nav.user.username || !nav.user.password || !(nav.user.password === nav.user.confirmPassword)" >Register</md-button>
+	 <md-button class="md-raised md-warn" id="prim2"  ui-sref="Home">Cancel</md-button>
+	</div>
+	</form>
+	<md-button ng-click="account=true">Already have an account?</md-button>
+	</md-content>
+
+	<md-content id="reg" ng-if="account">
+		<form ng-submit="nav.loginUser()">
+			<h4>Login</h4>
+		<md-input-container>
+			<label>Username</label>
+			<input ng-model="nav.user.username" required>
+		</md-input-container><br>
+		<md-input-container>
+			<label>Password</label>
+			<input ng-model="nav.user.password" type="password" required>
+		</md-input-container><br>
+	 <div >
+	 <md-button type="submit" >Login</md-button>
+	 <a type="button" class="btn"  ng-click="account=false" >Cancel</a>
+	</div>
+	</form>
+	</md-content>
+</div>
