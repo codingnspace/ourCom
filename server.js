@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(passport.initialize());
 
-var userRoutes = require('./routes/userRoutes');
+var userRoutes = require('./routes/UserRoutes');
 var postRoutes = require('./routes/PostRoutes');
 //on homepage load, render the index page
 app.get('/', function(req, res) {
