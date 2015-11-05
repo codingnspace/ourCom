@@ -3,6 +3,11 @@
   flex: 60;
 }
 
+#homebg{
+  background-image: url('http://7-themes.com/data_images/out/32/6879569-city-background.jpg');
+  background-size: cover;
+}
+
 .background{
   background-size:100% 100%;
 }

@@ -9,7 +9,7 @@ require('./models/User');
 require('./models/Post');
 require('./config/passport')
 var configDB = require('./config/database.js');
-mongoose.connect(configDB.url);;
+mongoose.connect('mongodb://localhost/neighborapp');
 // require('angular-youtube-embed');
 
 app.set('views', path.join(__dirname, 'views'));
@@ -18,6 +18,7 @@ app.engine('.html', require('ejs').renderFile);
 //Allow for these directories to be usable on the client side
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/bower_components'));
+app.use(express.static(__dirname + '/eh5v.files'));
 //we want to render html files
 app.set('view engine', 'html');
 app.set('view options', {
@@ -29,7 +30,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(passport.initialize());
 
-var userRoutes = require('./routes/UserRoutes');
+var userRoutes = require('./routes/userRoutes');
 var postRoutes = require('./routes/PostRoutes');
 //on homepage load, render the index page
 app.get('/', function(req, res) {
